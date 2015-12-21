@@ -48,6 +48,15 @@
 		-webkit-text-size-adjust: none;
 	}
 
+	.circular {
+		width: 300px;
+		height: 300px;
+		border-radius: 150px;
+		-webkit-border-radius: 150px;
+		-moz-border-radius: 150px;
+		background: url(../../images/kotaru.jpg) no-repeat;
+	}
+
 /* Box Model */
 
 	*, *:before, *:after {
