@@ -59,6 +59,11 @@
 					<div class="box">
 						<p>Implementing push notifications with ionic2(a hybrid mobile app framework) which is maried to angular2(the nest gen web framwework) has neven been this easier. Follow along with me for the rest of the post.</p>
 						<div class="row">
+							<div class="12u 12u(mobilep)">
+											<ul>
+												<h3>Quick demo on android device</h3>
+												<a href="https://www.youtube.com/watch?v=RXIVwX7RTt4">Demo</a>
+										</ul>
 						<div class="12u 12u(mobilep)">
 											<ul>
 											<h3>Setting up google cloud messaging platform</h3>
@@ -98,7 +103,7 @@ app.get('/push', function (req, res) {
     var message = new gcm.Message(); //create a new message
     message.addData('title', 'PushTitle');
     message.addData('message', "Push message");
-    message.addData('sound', 'notification');
+    message.addData('sound', 'default');
     message.collapseKey = 'Testing Push'; //grouping messages
     message.delayWhileIdle = true; //delay sending while receiving device is offline
     message.timeToLive = 3; //number of seconds to keep the message on 
@@ -176,6 +181,7 @@ initializeApp() {
       });
       push.on('notification', (data) => {
         console.log(data);
+        alert("Hi, Am a push notification");
       });
       push.on('error', (e) => {
         console.log(e.message);
