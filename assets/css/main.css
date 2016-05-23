@@ -3792,7 +3792,7 @@
     margin-right: auto;
     width: 40%; }
 
-    font-face {
+@font-face {
     font-family: 'icomoon';
     src:    url('fonts/icomoon.eot?obx891');
     src:    url('fonts/icomoon.eot?obx891#iefix') format('embedded-opentype'),
@@ -3819,5 +3819,6 @@
 }
 
 .icon-nodejs-icon:before {
+	font-family: 'icomoon' !important;
     content: "\e900";
 }
