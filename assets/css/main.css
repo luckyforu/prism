@@ -1822,7 +1822,7 @@
 	body, input, select, textarea {
 		color: #777;
 		font-family: "Source Sans Pro", sans-serif;
-		font-size: 16pt;
+		font-size: 100%;
 		font-weight: 300;
 		line-height: 1.65em;
 		letter-spacing: -0.015em;
@@ -2215,7 +2215,6 @@
 		box-shadow: 0 2px 0 0 #e5e5e5;
 		margin: 0 0 2em 0;
 		padding: 3em;
-		width:60em;
 	}
 
 		.box > :last-child {
@@ -3584,7 +3583,7 @@
 
 			.box {
 				margin: 1em;
-				overflow-x: auto;
+				overflow-x: hidden;
 				padding: 2em 2em !important;
 			}
 
@@ -3792,7 +3791,7 @@
     margin-right: auto;
     width: 40%; }
 
-@font-face {
+    /*@font-face {
     font-family: 'icomoon';
     src:    url('fonts/icomoon.eot?obx891');
     src:    url('fonts/icomoon.eot?obx891#iefix') format('embedded-opentype'),
@@ -3804,7 +3803,7 @@
 }
 
 [class^="icon-"], [class*=" icon-"] {
-    /* use !important to prevent issues with browser extensions that change fonts */
+     use !important to prevent issues with browser extensions that change fonts 
     font-family: 'icomoon' !important;
     speak: none;
     font-style: normal;
@@ -3821,4 +3820,4 @@
 .icon-nodejs-icon:before {
 	font-family: 'icomoon' !important;
     content: "\e900";
-}
+}*/
