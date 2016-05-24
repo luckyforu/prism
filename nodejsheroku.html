@@ -57,6 +57,7 @@
 						</p>
 					</header>
  						<img class="imagepush" src="./images/herokunode.jpg" alt="deploy node apps to heroku" title="deploy node app to heroku" align="middle"/>
+ 						<!-- <iframe width="80%" height="315" src="https://www.youtube.com/embed/RXIVwX7RTt4" frameborder="0" allowfullscreen></iframe> -->
 					<div class="box">
 						<p>Heroku is one of the leading hosting solutions, deploying node js to heroku has not been this easier. Follow along with me for the rest of the post for quickly deploying your node js application in less that 10 commands.</p>
 						<div class="row">
@@ -68,20 +69,66 @@
 									<li>Create a free github account, <a href="https://github.com/"> Click here for set up</a></li>
 								</div>		
 							<div class="12u 12u(mobilep)">
-							<h3>Code changes to your node app and pushing to git</h3>
+							<h3>Git set up and code changes</h3>
 							<ul>
-								<li>Create a basic node js application.</li>
-								<li>Update the package.json of the app with engines property. Update the node and npm versions. These will be node and npm versions running on your deployed app.
-								(Check the local versions of your node and npm and update accordingly)</li>
+								<li>Create an empty git repository</li>
+								<li>Clone this git repository locally</li>
+<pre>$ git clone "gitUrlOfTheRepo"</pre>
+								<li>Update the empty cloned git repo by making it a basic node js appliation.</li>
+								<li>
+									Add/Update the package.json of the app with engines property. Update the node and npm versions. These will be node and npm versions running on your deployed app.
+									(Check the local versions of your node and npm and update accordingly). Finally package.json shoule look somthing like following
+								</li>
 <pre>
-"engines": {
+{
+  "name": "nodejsheroku",
+  "version": "0.0.1",
+  "description": "deploying node js to heroku platform",
+  "main": "server.js",
+  "author": {
+    "name": "Nishanth Kabra",
+    "email": "nishantkabra14@gmail.com"
+  },
+  //important part
+  "engines": {
     "node": "4.4.x",
     "npm": "3.8.x"
+  },
+  "dependencies": {
+    "express": "4.13.x"
   }
+}
 </pre>
-								<li>Create a file with no extension and name it "Procfile". The content of the file will be trigger for running the node js app. Update it with the following command. (Here server.js is the root of my node app)
-<pre>"web: node server.js"</pre></li>
-								<li>Now create a git repo of your node application.(Do not push node modules and any other files which are merely dev dependencies).</li>
+								<li>Create a file with no extension and name it "Procfile". The content of the file will be trigger for running the node js app. Update it with the following command. (Here server.js is the root of my node app)</li>
+<pre>"web: node server.js"</pre>
+								<li>
+									Create a smiple node server by adding a file server.js and the contents of the file will be
+								</li>
+<pre>
+var express = require('express');
+var app = express();
+var port = process.env.PORT || 3000;
+
+app.get('/', function (req, res) {
+    res.send("Hello dev, am a local route nobody knows me yet!");
+});
+
+var server = app.listen(port, function () {
+    console.log('node server is just fine! and running on port - ' + port);
+});
+</pre>	
+								<li>
+									Install the dependencies from command line <code>$ npm install</code>
+								</li>
+								<li>
+									Run your node appliation locally from command line<code>$ node server</code>
+								</li>
+								<li>Now push all these changes to git repo from command line.(Do not push node modules and any other files which are merely dev dependencies - do note forget to add .gitignore file later for this project).></li>
+<pre>
+$ git add -A
+$ git commit -m "initial commit"
+$ git push
+</pre>
 							</ul>
 							</div>
 										
