@@ -79,27 +79,27 @@
     "npm": "3.8.x"
   }
 </pre>
-								<li>Create a file with no extension and name it "Procfile". The content of the file will be trigger for running the node js app. Update it with the following command. Here server.js is the root of my node app.
+								<li>Create a file with no extension and name it "Procfile". The content of the file will be trigger for running the node js app. Update it with the following command. (Here server.js is the root of my node app)
 <pre>"web: node server.js"</pre></li>
-								<li>Now create a git repo of your node application.(Do not push node modules and any other files which are just dev dependencies).</li>
+								<li>Now create a git repo of your node application.(Do not push node modules and any other files which are merely dev dependencies).</li>
 							</ul>
 							</div>
 										
 							<div class="12u 12u(mobilep)">
 								<h3>Heroku commands</h3>
 									<ul>
-										<li>Open your node js app location in command prompt and login in to heroku from your command line by typing heroku login. Enter the user name password of your heroku account.</li>
+										<li>Naviagate to your node js app locally using command prompt and login in to heroku from your command line by typing heroku login. Enter the user name password of your heroku account.</li>
 <pre>heroku login</pre>
 										<li>Create a heroku app by simply typing heroku create. This creates a heroku app, gives you a public url and also add git remotes for your heroku app.</li>
 <pre>heroku create</pre>
 										<li>You can see the git remotes by typing.</li>
 <pre>git remote -v</pre>
-										<li>If you have any environment varaibles to be set for your node app, you can set it now by adding key value pairs into the heroku config object</li>
+										<li>If you have to set any environment varaibles for your node app, you can set it now by adding key value pairs into the heroku config object</li>
 <pre>heroku config</pre>
-										<li> By now you can go to your heroku dashboard and see you node app listed there. <a href="https://dashboard.heroku.com/apps">Heroku dashboard</a></li>
+										<li> By now you can go to your personal heroku dashboard and see you node app listed there. <a href="https://dashboard.heroku.com/apps">Heroku dashboard</a></li>
 										<li>Finally push all these changes  to heroku git. Your app builds here.</li>
 <pre>git push heroku master</pre>
-										<li>You should now be allocating resources to your deployed node app. You can do this by typing the following command. This allocates a single dyno to your node application(You can increase the number of dynos by upgrading your free heroku account).</li>
+										<li>At this stage your node app is now ready to go live and waiting for resources. You should now be allocating resources by typing the following command. This allocates a single dyno to your node application(You can increase the number of dynos by upgrading your free heroku account).</li>
 <pre>heroku ps:scale web=1</pre>
 										<li>Type heroku open to see your live node js application.</li>
 <pre>heroku open</pre>										
@@ -111,6 +111,7 @@
 									<ul>
 										<li>Often you may get issues deploying for the first time, do not worry and try re deploying.</li>
 										<li>Once you succefully deploy your app, the next update only requires</li>
+<pre>git push origin master</pre>
 <pre>git push heroku master</pre>
 <pre>heroku ps:scale web=1</pre>	
 										<!-- <li>From June 1st 2016, we may have to configure ssh for pushing changes to heroku and have to perform few more steps, Stay tuned</li> -->					
