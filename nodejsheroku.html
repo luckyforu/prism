@@ -57,10 +57,19 @@
 						</p>
 					</header>
  						<img class="imagepush" src="./images/herokunode.jpg" alt="deploy node apps to heroku" title="deploy node app to heroku" align="middle"/>
- 						<!-- <iframe width="80%" height="315" src="https://www.youtube.com/embed/RXIVwX7RTt4" frameborder="0" allowfullscreen></iframe> -->
+ 						
 					<div class="box">
 						<p>Heroku is one of the leading hosting solutions, deploying node js to heroku has not been this easier. Follow along with me for the rest of the post for quickly deploying your node js application in less that 10 commands.</p>
 						<div class="row">
+							<div class="12u 12u(mobilep)">
+									<h3>Deploy your node js app in 5 minutes 34 seconds</h3>
+									<!--  <a href="https://www.youtube.com/watch?v=RXIVwX7RTt4">Demo</a>-->
+									<!-- <iframe class="videos" src="https://www.youtube.com/embed/RXIVwX7RTt4" frameborder="0" allowfullscreen>
+									</iframe> -->
+							</div>
+							<!-- <div width="100%">
+								
+							</div> -->
 							<div class="12u 12u(mobilep)">
 								<ul>
 									<h3>Accounts creation and set ups</h3>
@@ -76,8 +85,8 @@
 <pre>$ git clone "gitUrlOfTheRepo"</pre>
 								<li>Update the empty cloned git repo by making it a basic node js appliation.</li>
 								<li>
-									Add/Update the package.json of the app with engines property. Update the node and npm versions. These will be node and npm versions running on your deployed app.
-									(Check the local versions of your node and npm and update accordingly). Finally package.json shoule look somthing like following
+									Add/Update the package.json of the app with engines property, add node and npm versions. These will be node and npm versions running on your deployed app.
+									(Check the local versions of your node and npm and update accordingly). Finally package.json should look somthing like following
 								</li>
 <pre>
 {
@@ -102,7 +111,7 @@
 								<li>Create a file with no extension and name it "Procfile". The content of the file will be trigger for running the node js app. Update it with the following command. (Here server.js is the root of my node app)</li>
 <pre>"web: node server.js"</pre>
 								<li>
-									Create a smiple node server by adding a file server.js and the contents of the file will be
+									Create a simple node server by adding a file server.js and the contents of the file will be
 								</li>
 <pre>
 var express = require('express');
@@ -123,7 +132,7 @@ var server = app.listen(port, function () {
 								<li>
 									Run your node appliation locally from command line<code>$ node server</code>
 								</li>
-								<li>Now push all these changes to git repo from command line.(Do not push node modules and any other files which are merely dev dependencies - do note forget to add .gitignore file later for this project).></li>
+								<li>Now push all these changes to git repo from command line.(One should not push node modules and any other files which are merely dev dependencies to git repo - do not forget to add .gitignore file later to this project).></li>
 <pre>
 $ git add -A
 $ git commit -m "initial commit"
