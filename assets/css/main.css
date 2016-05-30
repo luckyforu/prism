@@ -3810,11 +3810,12 @@
 }
 
 .postSummary {
-		color: #777;
 		text-decoration: none;
 		cursor:pointer !important;		
 	}
-
+	.postSummary p {
+		color: #777;
+	}
 .videos {
 	width: calc(100% - 0.1em);
 	height: 315px;
