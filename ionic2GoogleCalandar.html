@@ -1,0 +1,442 @@
+<html>
+	<head>
+		<title>Ionic2 Push Notification</title>
+		<meta charset="utf-8" />
+		<html itemscope itemtype="http://nishanthkabra.com/ionic2GoogleCalandar.html"/>
+
+		<!-- Schema.org markup for Google+ -->
+		<meta itemprop="name" content="Push notifications in Ionic2 apps powered by angular2">
+		<meta itemprop="description" content="Send google calendar invites in your ionic2 hybrid mobile apps which is married to angular2(the next gen web framework). Send invites using the javascript google client apis and test it on real android device.">
+		<meta itemprop="image" content="http://nishanthkabra.com/images/push.png">
+
+		<!-- Twitter Card data -->
+		<meta name="twitter:card" content="summary">
+		<meta name="twitter:site" content="@NishanthKabra">
+		<meta name="twitter:title" content="Google calendar invites in Ionic2 apps powered by angular2">
+		<meta name="twitter:description" content="Send google calendar invites in your ionic2 hybrid mobile apps which is married to angular2(the next gen web framework). Send invites using the javascript google client apis and test it on real android device.">
+		<meta name="twitter:creator" content="@NishanthKabra">
+		<!-- Twitter summary card with large image must be at least 280x150px -->
+		<meta name="twitter:image:src" content="http://nishanthkabra.com/images/push.png?1234">
+
+		<!-- Open Graph data -->
+		<meta property="og:url" content="http://nishanthkabra.com/ionic2GoogleCalandar.html" />
+		<meta property="og:title" content="Google calendar invites in Ionic2 apps powered by angular2" />
+		<meta property="og:type" content="blog" />
+		<meta property="og:image" content="http://nishanthkabra.com/images/push.png" />
+		<meta property="og:description" content="Send google calendar invites in your ionic2 hybrid mobile apps which is married to angular2(the next gen web framework). Send invites using the javascript google client apis and test it on real android device.">
+		<meta property="fb:app_id" content="272166696459252" />
+
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
+		<link rel="canonical" href="http://nishanthkabra.com/ionic2GoogleCalandar.html">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="keywords" content="ionic2, google calendar invites, calendar invitaion, hybrid mobile app, google javascript client api" >
+		<meta name="description" content="Send google calendar invites in your ionic2 hybrid mobile apps which is married to angular2(the next gen web framework). Send invites using the javascript google client apis and test it on real android device.">
+		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+		<script type="text/javascript">
+		
+			function viewMoreViewLess(ele){
+				var id = ele.getAttribute("id");
+				var ele = document.getElementById(id);
+				if(ele.style.display == "none"){
+					ele.style.display = "block";
+					ele.previousElementSibling.innerHTML = "Hide Code"
+					return;
+				}
+				ele.style.display = "none";
+				ele.previousElementSibling.innerHTML = "View Code"
+			}
+			
+		</script>
+	</head>
+	<body>
+		<div id="page-wrapper">
+
+			<!-- Header -->
+				<header id="header">
+					<nav id="nav">
+						<ul>
+							<li><a href="index.html">Home</a></li>
+							<li><a href="nishanthkabra.html">Nishanth Kabra</a></li>
+						</ul>
+					</nav>
+				</header>
+
+
+			<!-- Main -->
+				<section id="main" class="container">
+					<header>
+						<h2>Google calendar invites in Ionic2</h2>
+                        <p>
+                            Manier times you would be dealing with events and would like to create a formal invitaion and send it across for letting most people know.
+                            With google calendar invites you do not have to worry about sending email reminders, text messages, screen pop ups and other tedious tasks as google would take care of it.<br>
+                            Now you could easily create a google calendar invite and send it across multiple users with a single click in your ionic 2 apps using google's javascript client apis.
+                        </p>
+					</header>
+ 						<img class="imagepush" src="http://localhost:8000/images/googleCalendar.png" alt="google calendar" title="google calendar" align="middle"/>
+					<div class="box">
+						<p>Sending google calendar invites with ionic2(a hybrid mobile app framework) which is maried to angular2(the nest gen web framwework) has neven been this easier. Follow along with me for the rest of the post.</p>
+						<div class="row">
+							
+							<div class="12u 12u(mobilep)">
+										<iframe class="videos" src="https://www.youtube.com/embed/RXIVwX7RTt4" frameborder="0" allowfullscreen></iframe>
+							</div>
+							
+							<div class="12u 12u(mobilep)">
+								<h3>Prerequites for ionic2 apps</h3>
+								<ul>
+									<li>Andorid sdk version 23 or above(or else your ionic v2 app wont build)</li>
+									<li>Latest android build and platform tools</li>
+									<li>Latest ionic version(ionic2 beta25 or above), ionic cli.</li>
+									<li>Latest cordova, cordova cli</li>
+								</ul>
+							</div>
+							
+							<div class="12u 12u(mobilep)">
+								<h3>Step 1 - Setting up google console project</h3>
+									<ul>
+									<li>Create a simple google console project and enable calendar api in it .</li>
+									<li>Take a note of this project's api key and google project number, <a href="https://console.developers.google.com">Click here to start set up</a></li>
+								</ul>
+							</div>		
+							
+							<div class="12u 12u(mobilep)">
+								<h3>Step 2 - Including google's javascript library in our ionic2 app</h3>
+								<ul>
+									<li>Download a sample ionic2 side menu project ans start doing following modifications.</li>
+									<li>Include the link of google javascript library for accesing the apis by adding the following in the head section of app's index.html
+										and we can use following cdn.
+										<pre><xmp><script src="https://apis.google.com/js/client.js"></script></xmp></pre>
+									</li>
+									<li>This library exposes a global object "gapi", we would be decalring this in our .ts file later where we would be using this library methods.
+										<pre>declare var gapi: any;</pre>
+									</li>
+								</ul>
+							</div>
+							
+							<!--<div class="12u 12u(mobilep)">
+								<h3>Setting up the ionic2 app for sending calendar invites</h3>
+								<ul>
+									<li>Create a simple form which captures the invitaion details. 
+									</li>
+									<li>Use the javascript library already injected in the ts and send invites programatically.
+									</li>
+								</ul>
+							</div>-->
+							
+							<div class="12u 12u(mobilep)">
+								<h3>Step 3 - Create a simple form which captures the invitaion details. </h3>
+								<p>This form captures the user inputs for creating and sending a basic google calendar invite</p>
+								<div>
+									<button id="templateButton" class="button special small" onclick="viewMoreViewLess(htmlCodeGoogleCalendar)">View Code</button>
+									<div id="htmlCodeGoogleCalendar" style="display:none;">
+<pre>
+	<xmp>
+<ion-navbar *navbar>
+  <button menuToggle>
+    <ion-icon name="menu"></ion-icon>
+  </button>
+  <ion-title>Ionic2 + Google Calendar</ion-title>
+</ion-navbar>
+
+<ion-content padding class="getting-started">
+  <ion-list> 
+      <ion-item-group>
+          <ion-item-divider light>Event Details</ion-item-divider>
+      <ion-item>
+          <ion-label>Name</ion-label>
+          <ion-input type="text" [(ngModel)]="calendarEvent.name"></ion-input>
+      </ion-item>
+      <ion-item>
+          <ion-label>Location</ion-label>
+          <ion-input type="text" [(ngModel)]="calendarEvent.location"></ion-input>
+      </ion-item>
+      <ion-item>
+          <ion-label>Description</ion-label>
+          <ion-input type="text" [(ngModel)]="calendarEvent.description"></ion-input>
+      </ion-item>
+      <ion-item>
+          <ion-label>Start Date</ion-label>
+          <ion-datetime displayFormat="DD MMM YYYY" pickerFormat="DD MMM YYYY" [(ngModel)]="calendarEvent.startDate"></ion-datetime>
+      </ion-item>
+      <ion-item>
+          <ion-label>Start Time</ion-label>
+          <ion-datetime displayFormat="hh:mm:a" pickerFormat="hh:mm:a" [(ngModel)]="calendarEvent.startTime"></ion-datetime>
+      </ion-item>
+      <ion-item>
+          <ion-label>End Date</ion-label>
+          <ion-datetime displayFormat="DD MMM YYYY" pickerFormat="DD MMM YYYY" [(ngModel)]="calendarEvent.endDate"></ion-datetime>
+      </ion-item>
+      <ion-item>
+          <ion-label>End Time</ion-label>
+          <ion-datetime displayFormat="hh:mm:a" pickerFormat="hh:mm:a" [(ngModel)]="calendarEvent.endTime"></ion-datetime>
+      </ion-item>
+        <ion-item-group>
+        <ion-item-divider light>Attendees</ion-item-divider>
+            <ion-list>
+                <ion-item *ngFor="let attendee of attendees;let i = index" inset>
+                    <ion-label>Attendee {{attendees.length - i}}</ion-label>
+                    <ion-input [(ngModel)]="attendee.email"></ion-input>
+                    <ion-icon name="md-remove-circle" item-right class="addRemoveBtn" (click)="removeAttendees(i)" *ngIf="attendees.length - i < attendees.length"></ion-icon>
+                    <ion-icon name="md-add-circle" item-right class="addRemoveBtn" (click)="addAttendees()" *ngIf="attendees.length - i  == attendees.length"></ion-icon>
+                </ion-item>
+            </ion-list>
+        </ion-item-group>
+        
+    </ion-item-group>
+  </ion-list>
+  <button primary (click)="sendInvite()">Send Google Calendar Invite</button>
+  
+</ion-content>
+</xmp>
+</pre>
+									</div>
+								</div>	
+							</div>
+							
+							<div class="12u 12u(mobilep)">
+								<h3>Step 4 - Integrating the google apis</h3>
+								<p>The following code behinds binds the user inputs and also wires everything up for sending the invite to the intented users.</p>
+								<div>
+								<button id="jsButton" class="button special small" onclick="viewMoreViewLess(jsCodeGoogleCalendar)">View Code</button>
+								<div id="jsCodeGoogleCalendar" style="display:none;">
+<pre>
+import {Page, Platform} from 'ionic-angular';
+import {InAppBrowser, InAppBrowserEvent, InAppBrowserRef} from 'ionic-native';
+declare var gapi: any;
+interface BrowserEvent extends InAppBrowserEvent{
+}
+interface BrowserRef extends InAppBrowserRef{
+  addEventListener(type: string, callback: (event: InAppBrowserEvent) => void): any;
+}
+@Page({
+  templateUrl: 'build/pages/GoogleCalendar/googleCalendar.html'
+})
+export class GoogleCalendar {
+    calendarEvent:any = {};
+    attendees = [{
+       email:""
+    }];
+    validation:any = {};
+    CLIENT_ID = '481043823855-nojs2inha6aupp7vaghl6dicn28503ou.apps.googleusercontent.com';
+    SCOPES = ["https://www.googleapis.com/auth/calendar"];
+    APIKEY = "AIzaSyD-KtMtdRpbQoutpLOasqtiGo12LvxJnNk";
+    REDIRECTURL = "http://localhost/callback";
+    sendInvite() {
+        if(!this.validate()) {
+          alert("Please fill all fields for sending invite.");
+          return;
+        }
+        this.validation.failure = false;
+        var startDateTimeISO = this.buildISODate(this.calendarEvent.startDate, this.calendarEvent.startTime);
+        var enddateTimeISO = this.buildISODate(this.calendarEvent.endDate, this.calendarEvent.endTime);
+        this.popLastAttendeeIfEmpty(this.attendees);
+        var browserRef = InAppBrowser.open('https://accounts.google.com/o/oauth2/auth?client_id=' + this.CLIENT_ID + '&redirect_uri=' + this.REDIRECTURL + '&scope=https://www.googleapis.com/auth/calendar&approval_prompt=force&response_type=token', '_blank', 'location=no');         
+        browserRef.addEventListener("loadstart", (event) => {
+          if ((event["url"]).indexOf("http://localhost/callback") === 0) {
+            var url = event["url"];
+            var token = url.split('access_token=')[1].split('&token_type')[0];
+            browserRef.removeEventListener("exit", (event) => { });
+            browserRef.close();
+            //SENDING THE INVITE USING THE GOOGLE CALENDAR API
+            gapi.client.setApiKey(this.APIKEY);
+            var request = gapi.client.request({
+              'path': '/calendar/v3/calendars/primary/events?alt=json',
+              'method': 'POST',
+              'headers': {
+                'Authorization': 'Bearer ' + token
+              },
+              'body': JSON.stringify({
+                "summary": this.calendarEvent.name,
+                "location": this.calendarEvent.location,
+                "description": this.calendarEvent.description,
+                "start": {
+                  "dateTime": startDateTimeISO,
+                  "timeZone": "Asia/Kolkata" // TODO : Parameterize this
+                },
+                "end": {
+                  "dateTime": enddateTimeISO,
+                  "timeZone": "Asia/Kolkata" // TODO : Parameterize this
+                },
+                "recurrence": [
+                  "RRULE:FREQ=DAILY;COUNT=1"
+                ],
+                "attendees": this.attendees,
+                "reminders": {
+                  "useDefault": false,
+                  "overrides": [
+                    {
+                      "method": "email",
+                      "minutes": 1440   		// TODO : Parameterize this
+                    },
+                    {
+                      "method": "popup",
+                      "minutes": 10 				// TODO : Parameterize this
+                    }
+                  ]
+                }
+              }),
+              'callback': function (jsonR, rawR) {
+                if(jsonR.id){
+                  alert("Invitation sent successfully");
+                } else {
+                  alert("Failed to sent invite.");
+                }
+                console.log(jsonR);
+              }
+            });
+          }
+        });
+    }
+    buildISODate(date, time){
+        var dateArray = date && date.split('-');
+        var timeArray = time && time.split(':');
+        var normalDate = new Date(parseInt(dateArray[0]), parseInt(dateArray[1])-1, parseInt(dateArray[2]), parseInt(timeArray[0]), parseInt(timeArray[1]), 0, 0);
+        return normalDate.toISOString();
+    }
+    popLastAttendeeIfEmpty(itemsList){
+        if(!!itemsList.length){
+          return itemsList[0]["email"] == "" ? itemsList.shift(itemsList[0]) : itemsList;
+        }
+        return [];
+    }
+    addAttendees(){
+        if(this.attendees[this.attendees.length - 1].email == '') return;
+        var newAttendee = {email:""};
+        this.attendees.unshift(newAttendee);
+    }
+    removeAttendees(itemIndex){
+        this.attendees.splice(itemIndex, 1);
+    }
+    validate() {
+        return this.isStringValid(this.calendarEvent.name) && 
+        this.isStringValid(this.calendarEvent.name) && 
+        this.isStringValid(this.calendarEvent.location) && 
+        this.isStringValid(this.calendarEvent.description) &&
+        this.isStringValid(this.calendarEvent.startDate) &&
+        this.isStringValid(this.calendarEvent.startTime) &&
+        this.isStringValid(this.calendarEvent.endDate) &&
+        this.isStringValid(this.calendarEvent.endTime) &&
+        this.areAttendeesValid(this.attendees);
+    }
+    isStringValid(str){
+      if (typeof str != 'undefined' && str) {
+          return true;
+      };
+      return false;
+    }
+    areAttendeesValid(attendees){
+      if(attendees.length == 1 && !this.isStringValid(attendees[0]["email"])){
+          return false;
+      }
+      return true;
+    }
+}</pre>							
+								</div>	
+							</div>
+							
+										
+							<div class="12u 12u(mobilep)">
+								<h3>Step 5 - Sending the invite</h3>
+									<ul>
+										<li>We would not be able to test the app in browser since we are using the InAppBrowser which is not available in it and accessing it throws errors.</li>
+										<li>Deploy this ionic2 app to any device say android.</li>
+										<ul style="margin:auto;">
+											<li>Create android platform
+												<code>
+													$ ionic platform add android
+												</code>
+											</li>
+											<li>Build android
+												<code>
+													$ ionic build android
+												</code>
+											</li>
+											<li>Deploy to android device
+												<code>
+													$ ionic run android
+												</code>
+											</li>
+										</ul>
+										<li>Fill appropriate details of the calendar invitation which includes Evnet name, location and other details</li>
+										<li>Click on the <strong>Send Google Calendar Invite</strong> button.</li>
+										<li>Boom! You have created a google calendar invitation and sent it to the added attendees.</li>
+										<li>Check your invitaion in the google calendar mobile app or google calendar web app</li>
+										<li>The <strong>jsonR</strong> object in the callback contains valuable information about the invite, one can analyze and use that information to enhance the functionality further.</li>
+									</ul>
+							<div>
+								
+							<div class="12u 12u(mobilep)">
+								<h3>Git repo for complete code and other references</h3>
+									<ul>
+										Consider seeing the following from the git repo for your own set up in newer versions(RCs) of ionic2.
+										<li>index.html of the app for including the google javascript library</li>
+										<li>app.ts of the app</li>
+										<li>calendar invitaion form, googleCalendar.html</li>
+										<li>code behind the form, googleCalendar.ts</li>
+										<li>Node modules can be older so please ignore and get latest of those that comes out of the box with ionic2 projects</li>
+										<li><a href="https://github.com/NishanthKabra/Ionic2_GoogleCalendar">My git repo</a></li>
+									</ul>
+							</div>
+							
+							
+							<div class="12u 12u(mobilep)">
+								<h3>Enhancements</h3>
+									<p>This is a very basic set up of sending calendar invites and a lot of things can be improved on top of this.</p>
+									 <ul>
+										<li>Frequency of the event, reminders can be taken from some settings.</li>
+										<li>Programatically calculating TimeZone which is mandatorily required for sending the google calendar invite.</li>
+										<li>A proper fall back mechanism if sending the invitaion fails and other cosmetics</li>
+									</ul>
+							</div>
+							
+							<div class="12u 12u(mobilep)">
+								<h3>Feedback</h3>
+									<p>If this post helps you in sending google calendar invites, do share.</p>
+									 <ul class="icons">
+										<li><a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fnishanthkabra.com%ionic2GoogleCalandar.html" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+										<li><a href="https://plus.google.com/share?url=http%3A%2F%2Fnishanthkabra.com%ionic2GoogleCalandar.html" class="icon fa-google-plus"><span class="label">Google+</span></a></li>
+										<li><a href="https://twitter.com/intent/tweet?url=http%3A%2F%2Fnishanthkabra.com%ionic2GoogleCalandar.html" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+									</ul>
+							</div>
+				</section>
+
+			<!-- Footer -->
+				<footer id="footer">
+					<ul class="icons">
+						<li><a href="https://twitter.com/NishanthKabra" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+						<li><a href="https://www.linkedin.com/in/nishanth-kabra-6b3a0359" class="icon fa-linkedin"><span class="label">LinkedIn</span></a></li>
+						<li><a href="https://www.facebook.com/nishanth.kabra" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+						<li><a href="https://www.instagram.com/nishanthkabra" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+						<li><a href="https://github.com/NishanthKabra" class="icon fa-github"><span class="label">Github</span></a></li>
+						<li><a href="https://plus.google.com/u/0/118354708916330484403/about" class="icon fa-google-plus"><span class="label">Google+</span></a></li>
+					</ul>
+					<ul class="copyright">
+						<li>&copy;2016 | NishanthKabra.com. ALL RIGHTS RESERVED</li>
+					</ul>
+				</footer>
+
+		</div>
+
+		<!-- Scripts -->
+			<!--<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.dropotron.min.js"></script>
+			<script src="assets/js/jquery.scrollgress.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]
+			<script src="assets/js/main.js"></script>
+			<script>
+			  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+			  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+			
+			  ga('create', 'UA-71237100-1', 'auto');
+			  ga('send', 'pageview');
+			
+			</script>-->
+
+	</body>
+</html>
