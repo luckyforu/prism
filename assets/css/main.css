@@ -3820,3 +3820,7 @@
 	width: calc(100% - 0.1em);
 	height: 315px;
 }
+
+.noMargin {
+	margin:0 0 0 0 !important;
+}
