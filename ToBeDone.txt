@@ -6,3 +6,19 @@ username:luckyfor
 password:Nishanth@91
 
 Social Sharing link creator : http://www.sharelinkgenerator.com/ 
+Facebook groups to post to:
+Add nice hashtags, post crisp summary . Post to twittwe and google plus.
+AngularJS 2.0
+AngularJS
+Angular2
+Code Philosophers
+Hybrid Mobile App
+PhoneGap
+Hyderabad StartUps
+Hyderabad Entreprenuers
+MEAN
+MEAN Stack
+Javascript
+ngHyderabad
+Ionic Framework Information
+Create a topic in ionic blog
